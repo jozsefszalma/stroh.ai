@@ -34,10 +34,6 @@ body, html {
   
   a {
     color: lime;
-    text-decoration: none;
-  }
-  
-  a:hover {
     text-decoration: underline;
   }
   
