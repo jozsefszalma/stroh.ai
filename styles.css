@@ -8,6 +8,7 @@ body, html {
   .terminal {
     display: flex;
     height: 100%;
+    width: 100%;
     justify-content: flex-start;
     align-items: flex-start;
     padding: 1rem;
