@@ -1,7 +1,8 @@
 const contentWrapper = document.querySelector('.content-wrapper');
 const content = document.getElementById('content');
 const cursor = document.querySelector('.cursor');
-const text = 'This project is in stealth mode.\n\nMeanwhile, feel free to visit: \n';
+const text = 'This project is in stealth mode.\n\nMeanwhile, feel free to take a look at my ';
+const linkText = 'other projects!';
 const link = 'https://github.com/jozsefszalma';
 const typingDelay = 100;
 
@@ -25,28 +26,40 @@ function typeText(text, index) {
 }
 
 function positionCursor(isLink = false) {
-    const lastElement = content.lastElementChild;
-    if (lastElement) {
-      const rect = lastElement.getBoundingClientRect();
-      cursor.style.position = 'absolute';
-      cursor.style.left = `${rect.right}px`;
-      cursor.style.top = `${rect.top}px`;
-  
-      if (isLink) {
-        cursor.style.marginLeft = '4px';
-      }
+  const lastElement = content.lastElementChild;
+  if (lastElement) {
+    const rect = lastElement.getBoundingClientRect();
+    cursor.style.position = 'absolute';
+    cursor.style.left = `${rect.right}px`;
+    cursor.style.top = `${rect.top}px`;
+
+    if (isLink) {
+      cursor.style.marginLeft = '4px';
     }
   }
+}
 
-function addLink() {
-    const linkElement = document.createElement('a');
+function typeLink(linkText, index) {
+    if (index < linkText.length) {
+      const char = linkText.charAt(index);
+      const span = document.createElement('span');
+      span.textContent = char;
+      linkElement.appendChild(span);
+      positionCursor();
+      setTimeout(() => typeLink(linkText, index + 1), typingDelay);
+    } else {
+      contentWrapper.appendChild(cursor);
+    }
+  }
+  
+  function addLink() {
+    linkElement = document.createElement('a');
     linkElement.href = link;
     linkElement.target = '_blank';
-    linkElement.textContent = link;
     content.appendChild(linkElement);
-    contentWrapper.appendChild(cursor);
-    positionCursor(true);
+    typeLink(linkText, 0);
   }
+  
 
 window.addEventListener('DOMContentLoaded', () => {
   typeText(text, 0);

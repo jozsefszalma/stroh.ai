@@ -8,7 +8,6 @@ body, html {
   .terminal {
     display: flex;
     height: 100%;
-    width: 100%;
     justify-content: flex-start;
     align-items: flex-start;
     padding: 1rem;
@@ -34,10 +33,6 @@ body, html {
   
   a {
     color: lime;
-    text-decoration: none;
-  }
-  
-  a:hover {
     text-decoration: underline;
   }
   
@@ -46,4 +41,7 @@ body, html {
       opacity: 0;
     }
   }
-  
+  #content a {
+    color: lime;
+    text-decoration: underline;
+  }
