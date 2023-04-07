@@ -1,7 +1,7 @@
 const contentWrapper = document.querySelector('.content-wrapper');
 const content = document.getElementById('content');
 const cursor = document.querySelector('.cursor');
-const text = 'This project is in stealth mode.\n\nMeanwhile feel free to visit this repo: ';
+const text = 'This project is in stealth mode.\n\nMeanwhile feel free to visit: ';
 const link = 'https://github.com/jozsefszalma';
 const typingDelay = 100;
 
